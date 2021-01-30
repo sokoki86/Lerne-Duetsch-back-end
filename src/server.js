@@ -4,6 +4,7 @@ const knex = require('knex')
 const app = require('./app')
 const { PORT, DB_URL } = require('./config')
 
+pg.defaults.ssl = process.env.NODE_ENV === "production"
 const db = knex({
   client: 'pg',
   connection: DB_URL,
